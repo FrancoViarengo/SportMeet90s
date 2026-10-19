@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Root copy of images (already in public/IMAGENES_Y_VIDEOS for Vite)
+/IMAGENES_Y_VIDEOS/
+
+# Temporary scrape dumps
+ig_dump.html

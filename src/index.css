@@ -1,0 +1,433 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-wheat-cream: #e5dccd;
+  --color-harvest-copper: #ab5700;
+  --color-citron-beam: #e8e359;
+  --color-morning-glory: #7997ff;
+  --color-amber-glow: #d99623;
+  --color-forest-floor: #214534;
+  --color-deep-moss: #103d26;
+  --color-olive-branch: #568037;
+  --color-slate-bloom: #3d549c;
+  --color-coral-petal: #e99686;
+
+  /* Typography — Font Families */
+  --font-poppins: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-parafina: 'Bricolage Grotesque', 'Cabinet Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.4;
+  --text-body: 16px;
+  --leading-body: 1.4;
+  --text-subheading: 20px;
+  --leading-subheading: 1;
+  --text-heading-sm: 30px;
+  --leading-heading-sm: 0.9;
+  --text-heading: 56px;
+  --leading-heading: 0.9;
+  --text-heading-lg: 70px;
+  --leading-heading-lg: 0.85;
+  --text-display: 104px;
+  --leading-display: 0.85;
+  --text-display-xl: 173px;
+  --leading-display-xl: 0.8;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-40: 40px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-100: 100px;
+  --spacing-140: 140px;
+
+  /* Border Radius */
+  --radius-2xl: 20px;
+  --radius-3xl: 31px;
+  --radius-full: 64px;
+  --radius-tags: 9999px;
+  --radius-cards: 20px;
+  --radius-buttons: 31px;
+}
+
+:root {
+  /* Colors */
+  --color-wheat-cream: #e5dccd;
+  --color-harvest-copper: #ab5700;
+  --color-citron-beam: #e8e359;
+  --color-morning-glory: #7997ff;
+  --color-amber-glow: #d99623;
+  --color-forest-floor: #214534;
+  --color-deep-moss: #103d26;
+  --color-olive-branch: #568037;
+  --color-slate-bloom: #3d549c;
+  --color-coral-petal: #e99686;
+
+  /* Typography */
+  --font-poppins: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-parafina: 'Bricolage Grotesque', 'Cabinet Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.4;
+  --text-body: 16px;
+  --leading-body: 1.4;
+  --text-subheading: 20px;
+  --leading-subheading: 1;
+  --text-heading-sm: 30px;
+  --leading-heading-sm: 0.9;
+  --text-heading: 56px;
+  --leading-heading: 0.9;
+  --text-heading-lg: 70px;
+  --leading-heading-lg: 0.85;
+  --text-display: 104px;
+  --leading-display: 0.85;
+  --text-display-xl: 173px;
+  --leading-display-xl: 0.8;
+
+  /* Spacing */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-40: 40px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-100: 100px;
+  --spacing-140: 140px;
+
+  /* Radii */
+  --radius-tags: 9999px;
+  --radius-cards: 20px;
+  --radius-buttons: 31px;
+
+  /* Page layout */
+  --page-max-width: 1200px;
+}
+
+/* Global Zero-Ambiguity rules */
+* {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+body {
+  background-color: var(--color-wheat-cream);
+  color: var(--color-harvest-copper);
+  font-family: var(--font-poppins);
+  font-size: 16px;
+  line-height: 1.40;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Background paper grain microtexture (1990s newsprint tactile feel) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)'/%3E%3C/svg%3E");
+}
+
+/* Display and Headings in strict weight 500 and crushed line-height */
+.font-display {
+  font-family: var(--font-parafina);
+  font-weight: 500 !important;
+}
+
+/* Specific display scales */
+.display-xl {
+  font-family: var(--font-parafina);
+  font-weight: 500 !important;
+  font-size: clamp(4.5rem, 12vw, 173px);
+  line-height: 0.80;
+  letter-spacing: -0.04em;
+}
+
+.display {
+  font-family: var(--font-parafina);
+  font-weight: 500 !important;
+  font-size: clamp(3.2rem, 8vw, 104px);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+}
+
+.heading-lg {
+  font-family: var(--font-parafina);
+  font-weight: 500 !important;
+  font-size: clamp(2.5rem, 5.5vw, 70px);
+  line-height: 0.85;
+  letter-spacing: -0.025em;
+}
+
+.heading {
+  font-family: var(--font-parafina);
+  font-weight: 500 !important;
+  font-size: clamp(2.2rem, 4.5vw, 56px);
+  line-height: 0.90;
+  letter-spacing: -0.02em;
+}
+
+.heading-sm {
+  font-family: var(--font-parafina);
+  font-weight: 500 !important;
+  font-size: 30px;
+  line-height: 0.90;
+}
+
+.subheading {
+  font-family: var(--font-parafina);
+  font-weight: 500 !important;
+  font-size: 20px;
+  line-height: 1.00;
+}
+
+/* Body and UI */
+.body-editorial {
+  font-family: var(--font-poppins);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.40;
+  color: var(--color-harvest-copper);
+  max-width: 620px;
+}
+
+.caption-ui {
+  font-family: var(--font-poppins);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.40;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Inline emphasis technique: NO bold, NO italic, ONLY Morning Glory color */
+.inline-blue {
+  color: var(--color-morning-glory) !important;
+  font-weight: inherit !important;
+  font-style: normal !important;
+  text-decoration: none !important;
+}
+
+/* Tactile Pill buttons - 31px radius with mechanical press feedback */
+.btn-pill {
+  border-radius: 31px !important;
+  padding: 6px 24px;
+  font-family: var(--font-poppins);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.40;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.4, 1), background-color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.btn-pill:active {
+  transform: scale(0.96);
+}
+
+.btn-pill-lg {
+  border-radius: 31px !important;
+  padding: 10px 32px;
+  font-family: var(--font-poppins);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.40;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  transition: transform 0.1s cubic-bezier(0.2, 0.8, 0.4, 1), background-color 0.15s ease;
+}
+
+.btn-pill-lg:active {
+  transform: scale(0.96);
+}
+
+/* Editorial Card - 20px radius, 1px Harvest Copper, 24px padding */
+.card-editorial {
+  border-radius: 20px;
+  border: 1px solid var(--color-harvest-copper);
+  padding: 24px;
+  background-color: var(--color-wheat-cream);
+}
+
+/* VHS Pipeline with Drifting Scanlines */
+@keyframes scanline-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100px;
+  }
+}
+
+.vhs-scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(16, 61, 38, 0.14) 0px,
+    rgba(16, 61, 38, 0.14) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanline-drift 12s linear infinite;
+  pointer-events: none;
+}
+
+.vhs-filter {
+  filter: contrast(1.08) saturate(1.15) sepia(0.12);
+}
+
+@keyframes rec-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0.2;
+  }
+}
+
+.animate-rec-blink {
+  animation: rec-blink 1s infinite;
+}
+
+/* Tracking Glitch on tape switch */
+@keyframes tracking-glitch {
+  0% {
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+    filter: hue-rotate(0deg) contrast(1.1);
+  }
+  20% {
+    clip-path: inset(25% 0 35% 0);
+    transform: translateX(-6px);
+    filter: hue-rotate(20deg) contrast(1.4);
+  }
+  40% {
+    clip-path: inset(65% 0 10% 0);
+    transform: translateX(8px);
+    filter: hue-rotate(-20deg) contrast(1.3);
+  }
+  60% {
+    clip-path: inset(10% 0 75% 0);
+    transform: translateX(-4px);
+    filter: contrast(1.5);
+  }
+  80% {
+    clip-path: inset(45% 0 45% 0);
+    transform: translateX(3px);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+    filter: hue-rotate(0deg) contrast(1.08);
+  }
+}
+
+.animate-tracking-glitch {
+  animation: tracking-glitch 0.25s steps(3) forwards;
+}
+
+/* CRT Turn-on flash */
+@keyframes crt-on {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.01) scaleX(0.8);
+    filter: brightness(3);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scaleY(0.05) scaleX(1);
+    filter: brightness(2);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1) scaleX(1);
+    filter: brightness(1);
+  }
+}
+
+.animate-crt-on {
+  animation: crt-on 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* 35mm Filmstrip sprocket holes styling */
+.sprocket-border-t {
+  background-image: radial-gradient(circle, var(--color-harvest-copper) 2.5px, transparent 3px);
+  background-size: 16px 10px;
+  background-repeat: repeat-x;
+}
+
+.sprocket-border-b {
+  background-image: radial-gradient(circle, var(--color-harvest-copper) 2.5px, transparent 3px);
+  background-size: 16px 10px;
+  background-repeat: repeat-x;
+}
+
+/* Tape divider with perforated edge */
+.tape-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 60px 0;
+  font-family: var(--font-poppins);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-harvest-copper);
+}
+
+.tape-divider::before,
+.tape-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dashed var(--color-harvest-copper);
+  opacity: 0.5;
+  margin: 0 16px;
+}
+
+/* Scroll reveal mask */
+.reveal-mask {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-mask.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Remove default focus outlines that add shadows */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--color-morning-glory);
+  outline-offset: 2px;
+}
